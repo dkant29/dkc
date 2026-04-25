@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Deepender Kant Chhabra — Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --paper: #f5f2ec;
+    --cream: #ede9e0;
+    --accent: #1a3a5c;
+    --gold: #8b6914;
+    --rule: #c8bfa8;
+    --muted: #6b6358;
+    --red: #8b1a1a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 max(2rem, 5vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: calc(56px + 6rem) max(2rem, 8vw) 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 56px; right: 0;
+    width: 38vw; height: calc(100% - 56px);
+    background: var(--cream);
+    z-index: 0;
+  }
+  .hero-left { position: relative; z-index: 1; }
+  .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1.5rem; justify-content: flex-end; }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .stat-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .stat-num {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 38ch;
+    line-height: 1.8;
+  }
+  .affiliation-block {
+    border-left: 2px solid var(--gold);
+    border-radius: 0;
+    padding-left: 1.2rem;
+  }
+  .affiliation-block p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    line-height: 1.6;
+  }
+  .affiliation-block strong {
+    display: block;
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem max(2rem, 8vw);
+    border-bottom: 1px solid var(--rule);
+    scroll-margin-top: 56px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  .about-text p:first-child {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .edu-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-degree {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .edu-inst {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── RESEARCH ── */
+  .research-areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .research-area {
+    background: var(--paper);
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+  .research-area:hover { background: var(--cream); }
+  .ra-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--accent);
+  }
+  .ra-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .ra-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .pub-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .pub-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    padding-top: 0.3rem;
+  }
+  .pub-content {}
+  .pub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+  .pub-journal {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+  .pub-authors {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+  .pub-authors .me { color: var(--accent); font-weight: 500; }
+  .pub-tag {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.15rem 0.5rem;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .project-card {
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    background: var(--paper);
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--accent);
+    border-radius: 0;
+    transition: height 0.3s;
+  }
+  .project-card:hover::before { height: 100%; }
+  .project-card:hover { transform: translateY(-2px); }
+  .project-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .project-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-left p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 38ch;
+    margin-bottom: 2rem;
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .contact-val {
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .contact-val a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .contact-val a:hover { border-color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem max(2rem, 8vw);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── DIVIDER ORNAMENT ── */
+  .ornament {
+    text-align: center;
+    color: var(--rule);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    margin: 0.5rem 0;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+  .delay-4 { animation-delay: 0.6s; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero::before { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .research-areas { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .pub-item { grid-template-columns: 60px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Dr. D. K. Chhabra &mdash; CSIR-CEERI</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <p class="eyebrow fade-in">Principal Scientist &middot; CSIR-CEERI, Pilani</p>
+    <h1 class="fade-in delay-1">Deepender<br><em>Kant</em><br>Chhabra</h1>
+    <p class="hero-title fade-in delay-2">Vacuum Electron Devices &middot; High Power Microwaves &middot; Klystron Engineering</p>
+    <div class="stat-row fade-in delay-3">
+      <div class="stat">
+        <span class="stat-num">45+</span>
+        <span class="stat-label">Citations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">20+</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Degrees</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right fade-in delay-2">
+    <p class="hero-desc">
+      A senior scientist at one of India's premier electronics research institutions, working at the frontier of microwave tube engineering, high-power RF systems, and particle accelerator technology.
+    </p>
+    <div class="affiliation-block">
+      <strong>CSIR-Central Electronics Engineering Research Institute</strong>
+      <p>Vacuum Electron Device Group<br>Pilani, Rajasthan &mdash; 333031, India</p>
+    </div>
+    <div class="affiliation-block" style="margin-top:0.5rem">
+      <strong>Academy of Scientific &amp; Innovative Research (AcSIR)</strong>
+      <p>Faculty &middot; Electronic Systems</p>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About <em>&amp; Education</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Dr. Deepender Kant Chhabra is a Principal Scientist and Senior Researcher at CSIR-Central Electronics Engineering Research Institute (CEERI), Pilani — one of India's oldest and most distinguished electronics research organisations under the Council of Scientific and Industrial Research.</p>
+      <p>His work sits at the intersection of electromagnetic theory and precision engineering, focused on the design, simulation, and development of vacuum electron devices (VEDs) — particularly klystrons — for applications spanning charged-particle accelerators, thermonuclear fusion plasma heating, high-power radar, and industrial microwave systems.</p>
+      <p>Over a career spanning decades at CSIR-CEERI, Dr. Chhabra has contributed to nationally significant projects including the development of an S-band klystron under an MoU between BARC and CEERI, and the design of a 100 kW CW power klystron for accelerator applications. He has mentored junior scientists and collaborative teams across India's leading scientific institutions.</p>
+      <p>His research employs advanced simulation tools — CST Particle Studio, HFSS, MAGIC, TRAK, Opera-3D, and ANSYS — to model electron guns, RF cavities, beam-wave interaction structures, and thermal systems with high fidelity before physical fabrication.</p>
+    </div>
+    <div>
+      <div class="ornament">&mdash; &diams; &mdash;</div>
+      <br>
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:0.05em;">Education</h3>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-degree">PhD in Engineering</div>
+          <div class="edu-inst">Malaviya National Institute of Technology (MNIT), Jaipur</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">M.Tech (Hons.) — Electronics Engineering</div>
+          <div class="edu-inst">Indian Institute of Technology (IIT-BHU), Varanasi</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">BE (Hons.) — Electronics &amp; Communication Engineering</div>
+          <div class="edu-inst">University of Rajasthan, Jaipur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="background: var(--cream);">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Research <em>Areas</em></h2>
+  </div>
+  <div class="research-areas">
+    <div class="research-area">
+      <svg class="ra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 4v6M16 22v6M4 16h6M22 16h6M8.5 8.5l4.2 4.2M19.3 19.3l4.2 4.2M8.5 23.5l4.2-4.2M19.3 12.7l4.2-4.2"/>
+        <circle cx="16" cy="16" r="4"/>
+      </svg>
+      <div class="ra-title">High Power Microwave Generation</div>
+      <p class="ra-desc">Design and development of high-power microwave sources using vacuum electron devices, including multi-beam klystrons operating at S-band, L-band, and C-band frequencies.</p>
+    </div>
+    <div class="research-area">
+      <svg class="ra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="8" width="20" height="16" rx="2"/>
+        <path d="M11 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+        <path d="M16 14v4M12 16h8"/>
+      </svg>
+      <div class="ra-title">Klystron Engineering</div>
+      <p class="ra-desc">End-to-end klystron development — from electron gun design and RF cavity simulation to beam-wave interaction modeling, thermal analysis, and hot testing of multi-MW power devices.</p>
+    </div>
+    <div class="research-area">
+      <svg class="ra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 4C9.4 4 4 9.4 4 16s5.4 12 12 12 12-5.4 12-12S22.6 4 16 4z"/>
+        <path d="M16 4c0 0-5 5.4-5 12s5 12 5 12M16 4c0 0 5 5.4 5 12s-5 12-5 12M4 16h24"/>
+      </svg>
+      <div class="ra-title">Vacuum Electron Devices</div>
+      <p class="ra-desc">Research into vacuum tubes and microwave amplifier tubes for radar, communication, and industrial applications — including multi-beam klystrons (MBKs) and extended-interaction structures.</p>
+    </div>
+    <div class="research-area">
+      <svg class="ra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="16" cy="16" r="3"/>
+        <ellipse cx="16" cy="16" rx="10" ry="5" transform="rotate(0 16 16)"/>
+        <ellipse cx="16" cy="16" rx="10" ry="5" transform="rotate(60 16 16)"/>
+        <ellipse cx="16" cy="16" rx="10" ry="5" transform="rotate(120 16 16)"/>
+      </svg>
+      <div class="ra-title">Accelerator &amp; Fusion Applications</div>
+      <p class="ra-desc">Development of klystron amplifiers for charged-particle accelerators and plasma heating in thermonuclear fusion reactors — with direct national science and defence relevance.</p>
+    </div>
+    <div class="research-area">
+      <svg class="ra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="4" width="24" height="24" rx="2"/>
+        <path d="M4 10h24M10 4v24"/>
+        <path d="M15 16l3 3 5-5"/>
+      </svg>
+      <div class="ra-title">Computational EM Simulation</div>
+      <p class="ra-desc">Multi-physics simulation of RF and electron-beam systems using HFSS, CST Microwave Studio, CST Particle Studio, MAGIC, TRAK, Opera-3D, and ANSYS codes.</p>
+    </div>
+    <div class="research-area">
+      <svg class="ra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="16" cy="16" r="9"/>
+        <circle cx="16" cy="16" r="4"/>
+        <path d="M16 7V4M16 28v-3M7 16H4M28 16h-3"/>
+      </svg>
+      <div class="ra-title">RF Cavity Design &amp; Characterisation</div>
+      <p class="ra-desc">Design and characterisation of re-entrant cavities, coaxial cavities, and multi-beam cavity structures — including novel tuning techniques for asymmetric multi-beam klystron geometries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Selected <em>Publications</em></h2>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-year">2019</div>
+      <div class="pub-content">
+        <div class="pub-title">Design of a 352.2 MHz, 100 kW CW Power Klystron</div>
+        <div class="pub-journal">Journal of Electromagnetic Waves and Applications, Vol. 33, No. 13, pp. 1681–1699</div>
+        <div class="pub-authors"><span class="me">Deepender Kant</span>, L. M. Joshi, Rakesh Meena, Bijendra Kumar, V. S. Rawat, V. Janyani</div>
+        <span class="pub-tag">Journal Paper</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2018</div>
+      <div class="pub-content">
+        <div class="pub-title">Design of a Multi Beam Electron Gun for 352.2 MHz, 100 kW (CW) Power Klystron</div>
+        <div class="pub-journal">Journal of Electromagnetic Waves and Applications, Vol. 32, No. 3, pp. 306–318</div>
+        <div class="pub-authors"><span class="me">Deepender Kant</span>, Lalit Mohan Joshi, Vijay Janyani</div>
+        <span class="pub-tag">Journal Paper</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2016</div>
+      <div class="pub-content">
+        <div class="pub-title">Design of a Multi Beam Klystron Cavity from its Single Beam Parameters</div>
+        <div class="pub-journal">AIP Conference Proceedings, Vol. 1715, p. 020049 &mdash; ICCS-15, BKBIET Pilani</div>
+        <div class="pub-authors"><span class="me">Deepender Kant</span>, L. M. Joshi, V. Janyani</div>
+        <span class="pub-tag">Conference Proceedings</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2016</div>
+      <div class="pub-content">
+        <div class="pub-title">Thermal Analysis of Collector for a 100 kW (CW) Power Klystron</div>
+        <div class="pub-journal">Advanced Science Letters, Vol. 22, No. 11 &mdash; NCTP-2015, MNIT Jaipur</div>
+        <div class="pub-authors"><span class="me">Deepender Kant</span>, L. M. Joshi, V. Janyani</div>
+        <span class="pub-tag">Conference Proceedings</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2016</div>
+      <div class="pub-content">
+        <div class="pub-title">Design and Characterisation of RF Cavity for a L-Band Multi Beam Klystron</div>
+        <div class="pub-journal">IEEE Proceedings of IMaRC-2016 &mdash; International Microwave and RF Conference, New Delhi</div>
+        <div class="pub-authors"><span class="me">Deepender Kant</span>, L. M. Joshi, V. Janyani</div>
+        <span class="pub-tag">IEEE Proceedings</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2016</div>
+      <div class="pub-content">
+        <div class="pub-title">Design of RF Interaction Structure for a 352.2 MHz, 100 kW (CW) Power Klystron</div>
+        <div class="pub-journal">Asia Pacific Microwave Conference (APMC) 2016, New Delhi</div>
+        <div class="pub-authors"><span class="me">Deepender Kant</span>, L. M. Joshi, V. Janyani</div>
+        <span class="pub-tag">International Conference</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2015–16</div>
+      <div class="pub-content">
+        <div class="pub-title">A Novel Technique for Tuning of Co-axial Cavity of Multi-Beam Klystron</div>
+        <div class="pub-journal">VEDA-15, MTRDC, Bangalore</div>
+        <div class="pub-authors">S. Saha, A. K. Bandyopadhyay, D. Pal, <span class="me">Deepender Kant</span>, L. M. Joshi, B. Kumar, R. Meena, V. S. Rawat</div>
+        <span class="pub-tag">National Conference</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2011–12</div>
+      <div class="pub-content">
+        <div class="pub-title">Design and Development of a 6 MW Peak, 24 kW Average Power S-Band Klystron</div>
+        <div class="pub-journal">BARC–CEERI MoU Project &mdash; International Vacuum Electronics Conference (IVEC)</div>
+        <div class="pub-authors">L. M. Joshi, R. Meena, S. Nangru, <span class="me">D. Kant</span>, D. Pal, O. S. Lamba, V. Jindal, D. P. Chakravarthy, K. Dixit</div>
+        <span class="pub-tag">International Conference</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2012</div>
+      <div class="pub-content">
+        <div class="pub-title">Temperature Characterisation of Fast Warm-up Cathode for Electron Gun of a J-Band Klystron</div>
+        <div class="pub-journal">ICMARS-12, Jodhpur</div>
+        <div class="pub-authors">S. Rawat, R. Meena, A. K. Savita, S. Gupta, <span class="me">D. Kant</span> et al.</div>
+        <span class="pub-tag">Conference</span>
+      </div>
+    </div>
+
+  </div>
+  <p style="margin-top:2rem;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.05em;">
+    For a complete list of publications, visit Google Scholar &rarr; scholar.google.com/citations?user=A1gKwfEAAAAJ
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--cream);">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Notable <em>Projects</em></h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-org">CSIR-CEERI &middot; Ongoing</div>
+      <div class="project-name">100 kW CW Klystron for Particle Accelerators</div>
+      <p class="project-desc">Design and development of a 352.2 MHz, 100 kW continuous-wave power klystron for charged particle accelerator applications. Covers the complete design chain: electron gun, RF interaction cavities, collector thermal design, and multi-beam translation.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-org">BARC &ndash; CEERI MoU</div>
+      <div class="project-name">6 MW Peak Power S-Band Klystron</div>
+      <p class="project-desc">Development of a 6 MW peak, 24 kW average power S-band klystron under an official MoU between the Bhabha Atomic Research Centre (BARC) and CSIR-CEERI — one of India's most strategically significant vacuum tube development programmes.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-org">CSIR-CEERI &middot; Multi-beam Devices</div>
+      <div class="project-name">Multi-Beam Klystron Research Programme</div>
+      <p class="project-desc">Research into multi-beam klystron (MBK) design methodology — developing scaling laws to translate single-beam parameters into multi-beam equivalents for S-band and C-band devices, reducing operating voltage while improving efficiency and power output.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-org">CSIR-CEERI &middot; RF Cavity Work</div>
+      <div class="project-name">Novel Coaxial Cavity Tuning for MBK</div>
+      <p class="project-desc">Co-development of a new coaxial cavity design that suppresses asymmetric field distribution inherent in multi-beam klystron geometries, enabling stable single-post tuning and more homogeneous beam-wave interaction across all beam channels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Get in <em>Touch</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p>For academic collaborations, research inquiries, or to connect with Dr. Chhabra regarding his work in vacuum electron devices and high-power microwave systems.</p>
+      <div class="contact-info">
+        <div class="contact-row">
+          <span class="contact-label">Institutional Email</span>
+          <span class="contact-val"><a href="mailto:dkc@ceeri.res.in">dkc@ceeri.res.in</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Alternative Email</span>
+          <span class="contact-val"><a href="mailto:deependerkant1@rediffmail.com">deependerkant1@rediffmail.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Institution</span>
+          <span class="contact-val">CSIR-CEERI, Pilani, Rajasthan — 333031, India</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Google Scholar</span>
+          <span class="contact-val"><a href="https://scholar.google.com/citations?user=A1gKwfEAAAAJ" target="_blank">View Profile &rarr;</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">ResearchGate</span>
+          <span class="contact-val"><a href="https://www.researchgate.net/profile/Deepender-Kant-2" target="_blank">View Profile &rarr;</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">CEERI Profile</span>
+          <span class="contact-val"><a href="https://www.ceeri.res.in/profiles/deependra-kant/" target="_blank">View at CEERI &rarr;</a></span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="affiliation-block" style="margin-bottom:2rem;">
+        <strong>CSIR-Central Electronics Engineering Research Institute</strong>
+        <p>Vacuum Electron Device Group<br>Pilani Town, Rajasthan, India — 333031<br>csir.res.in &middot; ceeri.res.in</p>
+      </div>
+      <div class="affiliation-block">
+        <strong>Academy of Scientific &amp; Innovative Research (AcSIR)</strong>
+        <p>Electronic Systems &amp; Signal Processing<br>New Delhi, India</p>
+      </div>
+      <div style="margin-top:2rem;padding:1.5rem;border:1px solid var(--rule);">
+        <p style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.05em;line-height:1.8;">
+          CSIR-CEERI is a constituent laboratory of the Council of Scientific &amp; Industrial Research (CSIR), Government of India — one of the oldest and most prolific scientific R&amp;D organisations in Asia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Dr. Deepender Kant Chhabra &mdash; CSIR-CEERI, Pilani</p>
+  <p>Vacuum Electron Devices &middot; High Power Microwaves &middot; Klystron Engineering</p>
+</footer>
+
+</body>
+</html>
